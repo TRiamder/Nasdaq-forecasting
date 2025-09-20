@@ -26,7 +26,7 @@ predictions to trade
 **Evaluation Period: 01.01.2024 - 31.08.2025**
 - Out-of-Sample Return: 10.6%
 
-![Equity Curve](images/equity_curve_test_costs.png)
+![Equity_Curve](images/equity_curve_test_costs.png)
 
 ## Next Steps
 
