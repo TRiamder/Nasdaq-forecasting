@@ -137,10 +137,10 @@ is very likely to be filled during the trading day.
 
 **3. Test Trading Model**
 
-- **Performance** : Validation Range: Return: 24.9%, Sharpe Ratio: 6.99
+- **Performance** : Validation Range: Return: 24.94%, Sharpe Ratio: 6.99
 **Test Range: Return: 12.25% in 2 years of backtest, Sharpe Ratio: 2.60**
 - **Transaction Costs** : After including an approximation of the trading costs: 
-Return 10.6%  in 2 years of backtest, Sharpe Ratio: 2.28
+Return 11.12%  in 2 years of backtest, Sharpe Ratio: 2.37
 - **Reasoning** : Transaction costs were modeled as the combination of slippage, spread, and commissions. 
 To ensure a conservative estimation, I subtracted 0.1 points from every simulated trade outcome. 
 This pessimistic assumption likely overestimates real-world costs for trading QQQ, 

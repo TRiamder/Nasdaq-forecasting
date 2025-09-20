@@ -153,7 +153,7 @@ def trading_model_test():
         bbox=dict(facecolor="white", alpha=0.8, edgecolor="black"),
     )
 
-    plt.savefig('images/equity_curve_test_costs.png')
+    plt.savefig('images/equity_curve_costs_test.png')
     plt.show()
 
 if __name__ == "__main__":
