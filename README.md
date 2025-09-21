@@ -3,9 +3,17 @@
 A hybrid machine learning model that predicts the daily high and low 
 of the Invesco QQQ ETF and further utilizing this prediction in a trading model.
 
+## Note on Feasibility
+The price related data used, comes from EODHD and cannot be uploaded or shared due to license restrictions. Therefore, the code is **not directly executable**.
+If you want to execute the code yourself you need to get a subscription at EODHD.
+--> Click [here](docs/instructions.md) for instruction
+
+As an alternative, I included example outputs (plots in PNG format and metrics in MD format) to make the workflow and results more understandable.
+--> See [here](results/results.md)
+
 ## Motivation
-Combining my interest in Data Science, Machine Learning and Finance, by which I am 
-trying to gain an edge in the financial markets.
+By building a machine learning-based trading model, I aimed to combine my interests in Data Science, Machine Learning and Finance.
+Beyond building a model, I wanted to gain hands-on experience in the full workflow of data handling, feature engineering, model training, validation and backtesting.
 
 ## Process
 1. Machine Learning Model:
@@ -26,7 +34,7 @@ predictions to trade
 **Evaluation Period: 01.01.2024 - 31.08.2025**
 - Out-of-Sample Return: 11.12%
 
-![Equity_curve](images/equity_curve_costs_test.png)
+![Equity_curve](results/plots/equity_curve_costs_test.png)
 
 ## Next Steps
 

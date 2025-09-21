@@ -1,15 +1,14 @@
 import sqlite3
 import pandas_datareader.data as web
 import requests
-import time
 import pandas as pd
 
 def load_nasdaq():
-    API_KEY = 'PRIVATE KEY' # Only available when subscribing to EODHD
+    api_token = 'Your API token' # Only available when subscribing to EODHD
     symbol = 'QQQ.US'
 
     url = (
-        f"https://eodhd.com/api/eod/{symbol}?api_token={API_KEY}&from=2009-01-01&to=2025-08-31&fmt=json"
+        f"https://eodhd.com/api/eod/{symbol}?api_token={api_token}&from=2009-01-01&to=2025-08-31&fmt=json"
     )
 
     resp = requests.get(url)
