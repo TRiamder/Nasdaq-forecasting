@@ -148,6 +148,7 @@ which is one of the most liquid ETFs with typical round-trip costs closer to 0.0
 - **Caveats & Considerations** : The backtesting results with transaction costs included are only a rough approximation 
 and may deviate from real-world performance. By comparing the trading model's performance on the validation and test sets, it appears that the model overfitted to the validation data.  
 Nonetheless, it still demonstrates strong performance on the test set, indicating reasonable out-of-sample robustness.
-The high Sharpe Ratio suggests broad opportunities for applying leverage, though the robustness of this metric should be continuously validated. 
+Even though, the model does not yield a return good as the Nasdaq, it ensures way less volatility with a solid return.
+Also, the high Sharpe Ratio suggests broad opportunities for applying leverage to boost returns, this also boosts risk in the same aspect though. 
 Since the trading model’s parameters are tuned to the error distribution of the machine learning model within a specific range, 
 a rolling window approach is likely required to adapt the strategy to changing market conditions and evolving error distributions.

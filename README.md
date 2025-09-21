@@ -6,7 +6,7 @@ of the Invesco QQQ ETF and further utilizing this prediction in a trading model.
 ## Note on Feasibility
 The price related data used, comes from EODHD and cannot be uploaded or shared due to license restrictions. Therefore, the code is **not directly executable**.
 If you want to execute the code yourself you need to get a subscription at EODHD.
---> Click [here](docs/instructions.md) for instruction
+--> Click [here](docs/instructions.md) for instructions
 
 As an alternative, I included example outputs (plots in PNG format and metrics in MD format) to make the workflow and results more understandable.
 --> See [here](results/results.md)
@@ -33,13 +33,13 @@ predictions to trade
 ## Results
 **Evaluation Period: 01.01.2024 - 31.08.2025**
 - Out-of-Sample Return: 11.12%
+- The model does not yield as good returns as the Nasdaq, tough it ensures way less risk with a still solid return
 
 ![Equity_curve](results/plots/equity_curve_costs_test.png)
 
 ## Next Steps
 
 - Testing the model on real-time data
-- Evolving the tuning of the Trading Model and potentially the training of the ML Model into a rolling
-window approach
+- Evolving the tuning process of the Trading Model into a rolling window approach
 
 **Click [here](docs/technical_insights.md) to dive deeper into the technical aspects of the project** 

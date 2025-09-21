@@ -106,22 +106,26 @@ def trading_model_test():
     ax.set_title("Equity Curve - Trading Model Backtest - Test Period (unseen data)")
     ax.set_xlabel("Date")
     ax.set_ylabel("Equity")
+
+    # calculate the return
     end_equity = equity[-1]
-    equity_str = f"End Equity: {end_equity:.2f}"
+    end_return = (end_equity / 1000.0 - 1) * 100
+    return_str = f"Return: {end_return:.2f}%"
+
     ax.text(
-        0.99, 0.5, equity_str, transform=ax.transAxes, fontsize=11, va="bottom", ha="right",
+        0.99, 0.4, return_str, transform=ax.transAxes, fontsize=11, va="bottom", ha="right",
         bbox=dict(facecolor="white", alpha=0.8, edgecolor="black"),
     )
     sharpe_ratio_str = f"Sharpe Ratio: {sharpe_ratio:.2f}"
     ax.text(
-        0.99, 0.45, sharpe_ratio_str, transform=ax.transAxes, fontsize=11, va="bottom", ha="right",
+        0.99, 0.35, sharpe_ratio_str, transform=ax.transAxes, fontsize=11, va="bottom", ha="right",
         bbox=dict(facecolor="white", alpha=0.8, edgecolor="black"),
     )
 
-    plt.savefig('images/equity_curve_test.png')
+    plt.savefig('results/plots/equity_curve_test.png')
     plt.show()
 
-    # visualize the performance of the trading model with transaction costs
+    # include the transaction costs in the equity curve
     equity_for_costs = pd.Series(equity)
     equity_diffs = equity_for_costs.diff().dropna()
     equity_costs = [1000.0]
@@ -132,28 +136,41 @@ def trading_model_test():
             equity_costs.append((i - 0.1) + equity_costs[-1])
     equity_costs_series = pd.Series(equity_costs[1:])
 
+    # Nasdaq buy and hold return for comparison
+    nasdaq = close.close
+    nasdaq_return = nasdaq + 1000.0 - nasdaq.iloc[0]
+
+    # visualize the performance of the trading model including transaction costs
     fig, ax = plt.subplots(figsize=(12, 8))
-    ax.plot(date_parsed, equity_costs_series)
+    ax.plot(date_parsed, equity_costs_series, label='Equity Curve Backtesting the Trading Model')
+    ax.plot(date_parsed, nasdaq_return, label='Nasdaq Buy & Hold Return')
+    ax.legend(loc='upper left')
     ax.set_title("Equity Curve - Trading Model Backtest - Test Period (unseen data) - Transaction Costs Included")
     ax.set_xlabel("Date")
     ax.set_ylabel("Equity")
+
+    # calculate the return
     end_equity_costs = equity_costs[-1]
-    equity_costs_str = f"End Equity: {end_equity_costs:.2f}"
+    end_return_costs = (end_equity_costs / 1000.0 - 1) * 100
+    return_costs_str = f"Model Return: {end_return_costs:.2f}%"
+
     ax.text(
-        0.99, 0.5, equity_costs_str, transform=ax.transAxes, fontsize=11, va="bottom", ha="right",
+        0.99, 0.40, return_costs_str, transform=ax.transAxes, fontsize=11, va="bottom", ha="right",
         bbox=dict(facecolor="white", alpha=0.8, edgecolor="black"),
     )
 
+    # calculate the sharpe ratio
     equity_sharp_costs = pd.Series(equity_costs)
     daily_returns_costs = equity_sharp_costs.pct_change().dropna()
     sharpe_ratio_costs = daily_returns_costs.mean() / daily_returns_costs.std(ddof=1) * np.sqrt(252)
-    sharpe_ratio_costs_str = f"Sharpe Ratio: {sharpe_ratio_costs:.2f}"
+    sharpe_ratio_costs_str = f"Model Sharpe Ratio: {sharpe_ratio_costs:.2f}"
+
     ax.text(
-        0.99, 0.45, sharpe_ratio_costs_str, transform=ax.transAxes, fontsize=11, va="bottom", ha="right",
+        0.99, 0.35, sharpe_ratio_costs_str, transform=ax.transAxes, fontsize=11, va="bottom", ha="right",
         bbox=dict(facecolor="white", alpha=0.8, edgecolor="black"),
     )
 
-    plt.savefig('images/equity_curve_costs_test.png')
+    plt.savefig('results/plots/equity_curve_costs_test.png')
     plt.show()
 
 if __name__ == "__main__":

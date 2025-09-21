@@ -78,21 +78,23 @@ def trading_model_final():
     ax.set_title("Equity Curve - Trading Model Backtest - Validation Period")
     ax.set_xlabel("Date")
     ax.set_ylabel("Equity")
+
+    # calculate the return
     end_equity = equity[-1]
-    equity_str = f"End Equity: {end_equity:.2f}"
+    end_return = (end_equity / 1000.0 - 1) * 100
+    return_str = f"Return: {end_return:.2f}%"
+
     ax.text(
-        0.99, 0.5, equity_str, transform=ax.transAxes, fontsize=11, va="bottom", ha="right",
+        0.99, 0.4, return_str, transform=ax.transAxes, fontsize=11, va="bottom", ha="right",
         bbox=dict(facecolor="white", alpha=0.8, edgecolor="black"),
     )
     sharpe_ratio_str = f"Sharpe Ratio: {sharpe_ratio:.2f}"
     ax.text(
-        0.99, 0.45, sharpe_ratio_str, transform=ax.transAxes, fontsize=11, va="bottom", ha="right",
+        0.99, 0.35, sharpe_ratio_str, transform=ax.transAxes, fontsize=11, va="bottom", ha="right",
         bbox=dict(facecolor="white", alpha=0.8, edgecolor="black"),
     )
-    plt.savefig('images/equity_curve_val.png')
+    plt.savefig('results/plots/equity_curve_val.png')
     plt.show()
-    #print(f"sharpe ratio: {sharpe_ratio}")
-    #print(f"average size of winning trades: {equity_spread.abs().mean()}")
 
 if __name__ == "__main__":
     trading_model_final()
