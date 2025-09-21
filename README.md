@@ -39,7 +39,7 @@ predictions to trade
 
 ## Next Steps
 
-- Testing the model on real-time data
-- Evolving the tuning process of the Trading Model into a rolling window approach
+- Test the model on real-time data
+- Test the effect of leverage on the strategy's risk-return profile, given the high Sharpe Ratio
 
 **Click [here](docs/technical_insights.md) to dive deeper into the technical aspects of the project** 
