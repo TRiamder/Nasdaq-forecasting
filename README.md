@@ -6,10 +6,10 @@ of the Invesco QQQ ETF and further utilizing this prediction in a trading model.
 ## Note on Feasibility
 The price related data used comes from EODHD and cannot be shared or uploaded due to license restrictions. Therefore, the code is **not directly executable**.
 If you want to execute the code yourself you need to get a subscription at EODHD.
---> Click [here](docs/instructions.md) for instructions
+--> [Click here](docs/instructions.md) for instructions
 
 As an alternative, I included example outputs (plots in PNG format and metrics in MD format) to illustrate the workflow and results more clearly.
---> See [here](results/results.md)
+--> [See here](results/results.md)
 
 ## Motivation
 By building a machine learning-based trading model, I aimed to combine my interests in Data Science, Machine Learning and Finance.
